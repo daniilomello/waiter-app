@@ -31,11 +31,13 @@ export function OrderModal({ visible, order, onClose, onCancelOrder, isLoading, 
     return acc + (product.price * quantity);
   }, 0);
 
+  const apiURL = import.meta.env.VITE_BASE_URL || 'http://localhost:3001';
+
   return (
     <Overlay>
       <ModalBody>
         <header>
-          <strong>Mesa {order.table}</strong>
+          <strong>Table {order.table}</strong>
 
           <button type="button" onClick={onClose}>
             <img src={closeIcon} alt="close icon" />
@@ -43,7 +45,7 @@ export function OrderModal({ visible, order, onClose, onCancelOrder, isLoading, 
         </header>
 
         <div className="status-container">
-          <small>Status do Pedido</small>
+          <small>Order status</small>
           <div>
             <span>
               {order.status === 'WAITING' && '🕐'}
@@ -52,21 +54,21 @@ export function OrderModal({ visible, order, onClose, onCancelOrder, isLoading, 
             </span>
 
             <strong>
-              {order.status === 'WAITING' && 'Fila de espera'}
-              {order.status === 'IN_PRODUCTION' && 'Em preparação'}
-              {order.status === 'DONE' && 'Pronto'}
+              {order.status === 'WAITING' && 'Waiting Line'}
+              {order.status === 'IN_PRODUCTION' && 'In Production'}
+              {order.status === 'DONE' && 'Done'}
             </strong>
           </div>
         </div>
 
         <OrderDetails>
-          <strong>Itens</strong>
+          <strong>Items</strong>
 
           <div className="order-items">
             {order.products.map(({ _id, product, quantity }) => (
               <div className="item" key={_id}>
                 <img
-                  src={`http://localhost:3001/uploads/${product.imagePath}`}
+                  src={`${apiURL}/uploads/${product.imagePath}`}
                   alt={product.name}
                   height={32}
                 />
@@ -99,8 +101,8 @@ export function OrderModal({ visible, order, onClose, onCancelOrder, isLoading, 
                 {order.status === 'IN_PRODUCTION' && '✅'}
               </span>
               <span>
-                {order.status === 'WAITING' && 'Iniciar Produção'}
-                {order.status === 'IN_PRODUCTION' && 'Concluir Pedido'}
+                {order.status === 'WAITING' && 'Start Production'}
+                {order.status === 'IN_PRODUCTION' && 'Complete Order'}
               </span>
             </button>
           )}
@@ -110,7 +112,7 @@ export function OrderModal({ visible, order, onClose, onCancelOrder, isLoading, 
             onClick={onCancelOrder}
             disabled={isLoading}
           >
-            <span>Encerrar Pedido</span>
+            <span>Close Order</span>
           </button>
         </Actions>
       </ModalBody>

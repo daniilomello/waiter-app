@@ -1,4 +1,3 @@
-import logo from '../../assets/images/logo.svg';
 import { Container, Content } from './styles';
 
 export function Header() {
@@ -6,8 +5,8 @@ export function Header() {
     <Container>
       <Content>
         <div className="page-details">
-          <h1>Pedidos</h1>
-          <h2>Acompanhe os pedidos dos clientes</h2>
+          <h1>Orders</h1>
+          <h2>Keep track of customer orders</h2>
         </div>
 
         {/* <img src={logo} alt="WaiterApp Logo" /> */}

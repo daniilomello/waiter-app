@@ -16,8 +16,8 @@ export function OrderConfirmedModal({ visible, onConfirm }: OrderConfirmedModalP
     >
       <Container>
         <CheckCircle />
-        <Text size={20} weight='600' color='#fff'>Pedido Confirmado</Text>
-        <Text color='#fff' opacity={0.9}>O pedido já entrou na fila de produção!</Text>
+        <Text size={20} weight='600' color='#fff'>Order Confirmed</Text>
+        <Text color='#fff' opacity={0.9}>The order has already entered the production queue!</Text>
 
         <ButtonWhite onPress={onConfirm}>
           <Text color='#d73035' weight='600'>OK</Text>

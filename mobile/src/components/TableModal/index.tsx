@@ -29,14 +29,14 @@ export function TableModal({ visible, onClose, onSave }: TableModalProps) {
       <Overlay behavior={Platform.OS === 'android' ? 'height' : 'padding'}>
         <ModalBody>
           <Header>
-            <Text weight='600'>Informa a mesa</Text>
+            <Text weight='600'>Inform the table</Text>
             <TouchableOpacity onPress={onClose}>
               <Close color='#666' />
             </TouchableOpacity>
           </Header>
           <Form>
             <Input
-              placeholder='Número da mesa'
+              placeholder='Table number'
               placeholderTextColor='#666'
               keyboardType='number-pad'
               onChangeText={setTable}
@@ -46,7 +46,7 @@ export function TableModal({ visible, onClose, onSave }: TableModalProps) {
               onPress={handleSave}
               disabled={table.length === 0}
             >
-              Salvar
+               Save
             </Button>
           </Form>
         </ModalBody>

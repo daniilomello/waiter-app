@@ -12,9 +12,9 @@ export function Header({ selectedTable, onCancelOrder }: HeaderProps) {
     <Container>
       {!selectedTable && (
         <>
-          <Text size={14} opacity={0.9}>Bem vindo(a) ao</Text>
+          <Text size={14} opacity={0.9}>Welcome</Text>
           <Text size={24} weight='700'>
-            MENU
+            Danilo
           </Text>
         </>
       )}
@@ -23,17 +23,17 @@ export function Header({ selectedTable, onCancelOrder }: HeaderProps) {
         <>
           <Content>
             <OrderHeader>
-              <Text size={24} weight='600'>Pedido</Text>
+              <Text size={24} weight='600'>Order</Text>
 
               <TouchableOpacity onPress={onCancelOrder}>
                 <Text color='#df3035' weight='600' size={14}>
-                  Cancelar Pedido
+                  Cancel Order
                 </Text>
               </TouchableOpacity>
             </OrderHeader>
 
             <Table>
-              <Text color='#666'>Mesa {selectedTable}</Text>
+              <Text color='#666'>Table {selectedTable}</Text>
             </Table>
           </Content>
         </>

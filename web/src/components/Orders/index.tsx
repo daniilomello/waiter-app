@@ -5,11 +5,13 @@ import { Container } from './styles';
 import { api } from '../../utils/api';
 import socketIo from 'socket.io-client';
 
+const apiURL = import.meta.env.VITE_BASE_URL || 'http://localhost:3001';
+
 export function Orders() {
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
-    const socket = socketIo('http://localhost:3001', {
+    const socket = socketIo(apiURL, {
       transports: ['websocket'],
     });
 
@@ -43,7 +45,7 @@ export function Orders() {
     <Container>
       <OrdersBoard
         icon="🕐"
-        title="Fila de espera"
+        title="Waiting line"
         orders={ordersWaiting}
         onCancelOrder={handleCancelOrder}
         onChangeOrderStatus={handleOrderStatusChange}
@@ -51,7 +53,7 @@ export function Orders() {
 
       <OrdersBoard
         icon="👨‍🍳"
-        title="Em preparação"
+        title="In preparation"
         orders={ordersInProduction}
         onCancelOrder={handleCancelOrder}
         onChangeOrderStatus={handleOrderStatusChange}
@@ -59,7 +61,7 @@ export function Orders() {
 
       <OrdersBoard
         icon="✅"
-        title="Pronto!"
+        title="Done!"
         orders={ordersDone}
         onCancelOrder={handleCancelOrder}
         onChangeOrderStatus={handleOrderStatusChange}

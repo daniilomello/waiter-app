@@ -10,9 +10,9 @@ const app = express();
 const server = http.createServer(app);
 export const io = new Server(server);
 
-mongoose.connect('mongodb://localhost:27017')
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017')
   .then(() => {
-    const port = 3001;
+    const port = process.env.PORT || 3001;
 
     app.use((req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', '*');

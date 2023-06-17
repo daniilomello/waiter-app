@@ -37,7 +37,7 @@ export function OrdersBoard({ icon, title, orders, onCancelOrder, onChangeOrderS
       : 'DONE';
 
     await api.patch(`/orders/${selectedOrder?._id}`, { status });
-    toast.success(`O pedido da mesa ${selectedOrder?.table} teve o status alterado`);
+    toast.success(`Table ${selectedOrder?.table} teve o status alterado`);
     onChangeOrderStatus(selectedOrder!._id, status);
     setIsLoading(false);
     setIsModalVisible(false);
@@ -47,7 +47,7 @@ export function OrdersBoard({ icon, title, orders, onCancelOrder, onChangeOrderS
     setIsLoading(true);
 
     await api.delete(`/orders/${selectedOrder?._id}`);
-    toast.success(`O pedido da mesa ${selectedOrder?.table} foi cancelado!`);
+    toast.success(`Order for table ${selectedOrder?.table} has changed status!`);
     onCancelOrder(selectedOrder!._id);
     setIsLoading(false);
     setIsModalVisible(false);
@@ -72,7 +72,7 @@ export function OrdersBoard({ icon, title, orders, onCancelOrder, onChangeOrderS
       {orders.length > 0 && orders.map((order) => (
         <OrdersContainer key={order._id}>
           <button type="button" onClick={() => handleOpenOrder(order)}>
-            <strong>Mesa {order.table}</strong>
+            <strong>Table {order.table}</strong>
             <span>{order.products.length} itens</span>
           </button>
         </OrdersContainer>

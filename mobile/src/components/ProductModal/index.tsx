@@ -78,14 +78,14 @@ export function ProductModal({ visible, onClose, onAddToCart, product }: Product
       <Footer>
         <FooterContainer>
           <PriceContainer>
-            <Text color='#666'>Preço</Text>
+            <Text color='#666'>Price</Text>
             <Text size={20} weight='600'>
               {formatCurrency(product.price)}
             </Text>
           </PriceContainer>
 
           <Button onPress={handleAddToCart}>
-            Adicionar ao pedido
+            Add to order
           </Button>
         </FooterContainer>
       </Footer>

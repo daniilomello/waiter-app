@@ -115,7 +115,7 @@ export function Cart({ cartItems, onAdd, onRemove, onConfirmOrder, selectedTable
               <Text size={20} weight='600'>{formatCurrency(total)}</Text>
             </>
           ) : (
-            <Text color='#999'>Seu carrinho está vazio</Text>
+            <Text color='#999'>Your cart is empty</Text>
           )}
         </TotalContainer>
 
